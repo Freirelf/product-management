@@ -38,7 +38,7 @@ export function getProductById(req, res) {
 export function addProduct(req, res ) {
   let body = '';
   req.on('data', chunk => {
-    body += chunk.toSting();
+    body += chunk.toString();
   })
   req.on('end', () => {
     const { name, category, price} = JSON.parse(body)
@@ -59,7 +59,7 @@ export function addProduct(req, res ) {
   })
 }
 
-function deleteProduct(req, res ) {
+export function deleteProduct(req, res ) {
   const productId = parseInt(req.params.id)
   const productIndex = products.findIndex(product => product.id === productId)
 
